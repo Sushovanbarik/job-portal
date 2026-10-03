@@ -148,7 +148,7 @@ Job-Portal/
 │
 ├── .gitignore
 └── README.md
-
+```
 ⚙️ Installation & Setup
 1. Clone the Repository
 git clone https://github.com/Sushovanbarik/job-portal.git
