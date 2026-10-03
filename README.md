@@ -237,53 +237,53 @@ Cloudinary is used for storing uploaded images/files.
 The backend connects to Cloudinary using environment variables.
 Do not expose your Cloudinary credentials publicly.
 
-🔄 Application Workflow
-                    JOB PORTAL
-                        │
-            ┌───────────┴───────────┐
-            │                       │
-       JOB SEEKER                RECRUITER
-            │                       │
-            │                  Create Company
-            │                       │
-       Search Jobs              Post Jobs
-            │                       │
-       View Job Details          Manage Jobs
-            │                       │
-       Apply for Job            View Applicants
-            │                       │
-            └───────────┬───────────┘
-                        │
-                        ▼
-                   BACKEND API
-                        │
-                        ▼
-                    EXPRESS.JS
-                        │
-                        ▼
-                     MONGODB
+## 🔄 Application Workflow
 
+```mermaid
+flowchart TD
+    A[User Opens Job Portal] --> B{User Type}
 
-🔐 Authentication Flow
-User
- │
- ▼
-Register / Login
- │
- ▼
-Backend API
- │
- ▼
-Validate Credentials
- │
- ▼
-Generate JWT
- │
- ▼
-Store Authentication Cookie
- │
- ▼
-Protected Routes
+    B -->|Job Seeker| C[Register / Login]
+    B -->|Recruiter| D[Register / Login]
+
+    C --> E[Browse Jobs]
+    E --> F[View Job Details]
+    F --> G[Apply for Job]
+    G --> H[Track Applications]
+
+    D --> I[Create Company Profile]
+    I --> J[Post Jobs]
+    J --> K[Manage Jobs]
+    K --> L[View Applicants]
+
+    H --> M[Backend API]
+    L --> M
+
+    M --> N[Express.js]
+    N --> O[MongoDB]
+```
+
+## 🔐 Authentication Flow
+
+```mermaid
+flowchart TD
+    A[User] --> B[Register / Login]
+    B --> C[Frontend]
+    C --> D[Backend API]
+    D --> E[Validate Credentials]
+
+    E -->|Valid| F[Generate JWT]
+    E -->|Invalid| G[Return Error]
+
+    F --> H[Store Authentication Cookie]
+    H --> I[Access Protected Routes]
+
+    I --> J[Authentication Middleware]
+    J --> K{JWT Valid?}
+
+    K -->|Yes| L[Allow Request]
+    K -->|No| M[Reject Request]
+```
 
 📌 Main Modules
 User Module
