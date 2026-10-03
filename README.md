@@ -285,80 +285,116 @@ flowchart TD
     K -->|No| M[Reject Request]
 ```
 
-📌 Main Modules
-User Module
+## 📌 Main Modules
+
+### 👤 User Module
+
 Responsible for:
+
 - Registration
 - Login
 - Logout
-- Profile management
+- Profile Management
 - Authentication
-Job Module
+
+### 💼 Job Module
+
 Responsible for:
-- Creating jobs
-- Viewing jobs
-- Searching jobs
-- Updating jobs
-- Managing jobs
-Company Module
+
+- Creating Jobs
+- Viewing Jobs
+- Searching Jobs
+- Updating Jobs
+- Managing Jobs
+
+### 🏢 Company Module
+
 Responsible for:
-- Creating companies
-- Updating company information
-- Viewing companies
-- Managing company details
-Application Module
+
+- Creating Companies
+- Updating Company Information
+- Viewing Companies
+- Managing Company Details
+
+### 📝 Application Module
+
 Responsible for:
-- Applying for jobs
-- Viewing applications
-- Managing applications
-- Tracking applied jobs
-🧩 Frontend Components
-The frontend contains reusable components for:
+
+- Applying for Jobs
+- Viewing Applications
+- Managing Applications
+- Tracking Applied Jobs
+
+
+## 🧩 Frontend Components
+
+The frontend contains reusable React components for:
+
 - Authentication
 - Navigation
-- Job browsing
-- Job descriptions
-- Job cards
-- Company information
-- Application management
-- Admin dashboard
+- Job Browsing
+- Job Descriptions
+- Job Cards
+- Company Information
+- Application Management
+- Admin Dashboard
 - Forms
 - Tables
-- UI components
-The project also uses custom React hooks for fetching jobs, companies, applications, and admin data.
-🗃️ Redux State Management
-Redux Toolkit is used to manage application state.
-Main Redux slices include:
-applicationSlice.js
-authSlice.js
-companySlice.js
-jobSlice.js
-store.js
+- UI Components
 
-These slices manage authentication, jobs, companies, and applications throughout the application.
-🔒 Environment Variables
+The project also uses custom React hooks for fetching:
+
+- Jobs
+- Companies
+- Applications
+- Admin Data
+
+
+## 🗃️ Redux State Management
+
+Redux Toolkit is used to manage the application's global state.
+
+### Main Redux Slices
+
+- `applicationSlice.js` — Manages job applications
+- `authSlice.js` — Manages authentication and user state
+- `companySlice.js` — Manages company-related state
+- `jobSlice.js` — Manages job-related state
+- `store.js` — Configures the Redux store
+
+These Redux slices manage authentication, jobs, companies, and applications throughout the application.
+
+
+## 🔒 Environment Variables
+
 Sensitive information such as:
+
 - MongoDB connection strings
-- JWT secret
+- JWT secret keys
 - Cloudinary credentials
 - API keys
-should be stored in .env files.
-The .env file should never be pushed to GitHub.
 
-🚀 Future Improvements
+should be stored in `.env` files.
+
+
+## 🚀 Future Improvements
+
 Some possible future improvements include:
-- AI-based job recommendations
-- Real-time notifications
-- Resume parsing
-- Advanced job search
-- Interview scheduling
-- Recruiter analytics dashboard
-- Email notifications
-- Application status notifications
-- Cloud deployment
-- Improved mobile responsiveness
-👨‍💻 Author
-Sushovan Barik
-GitHub:
-https://github.com/Sushovanbarik
-                     
+
+- 🤖 AI-based Job Recommendations
+- 🔔 Real-time Notifications
+- 📄 Resume Parsing
+- 🔎 Advanced Job Search
+- 📅 Interview Scheduling
+- 📊 Recruiter Analytics Dashboard
+- 📧 Email Notifications
+- 📬 Application Status Notifications
+- ☁️ Cloud Deployment
+- 📱 Improved Mobile Responsiveness
+
+
+## 👨‍💻 Author
+
+**Sushovan Barik**
+
+- GitHub: [Sushovanbarik](https://github.com/Sushovanbarik)
