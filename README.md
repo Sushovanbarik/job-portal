@@ -1,6 +1,9 @@
 # 💼 Job Portal
 
-A full-stack **Job Portal Web Application** built using the MERN stack. The platform connects job seekers with recruiters and provides features for job searching, job applications, company management, and recruitment management.
+A full-stack Job Portal web application built using the **MERN stack**.  
+The platform allows job seekers to search and apply for jobs, while recruiters/admins can manage companies, post jobs, and manage applications.
+
+---
 
 ## 🚀 Features
 
@@ -9,23 +12,25 @@ A full-stack **Job Portal Web Application** built using the MERN stack. The plat
 - User registration and login
 - Secure authentication
 - Browse available jobs
-- Search and filter jobs
-- View detailed job information
+- Search for jobs
+- Filter jobs by category and other criteria
+- View job details
 - Apply for jobs
 - View applied jobs
-- Manage user profile
+- Manage profile
 - View company information
 
 ### 🏢 Recruiter / Admin
 
-- Recruiter/Admin authentication
+- Secure admin/recruiter authentication
 - Create and manage companies
 - Set up company information
 - Post new jobs
-- Update and manage jobs
 - View posted jobs
+- Update and manage jobs
 - View applicants
-- Manage job applications
+- Manage applications
+- View company and job information
 
 ### 🔐 Authentication & Security
 
@@ -39,15 +44,14 @@ A full-stack **Job Portal Web Application** built using the MERN stack. The plat
 ### 📁 File Upload
 
 - Multer for handling file uploads
-- Cloudinary for cloud-based image/file storage
+- Cloudinary for cloud-based file/image storage
 
 ### 🔔 User Experience
 
+- Toast notifications using Sonner
 - Responsive user interface
 - Reusable React components
-- Toast notifications using Sonner
 - Animated UI using Framer Motion
-- Modern UI using Tailwind CSS and shadcn/ui
 
 ---
 
@@ -71,13 +75,13 @@ A full-stack **Job Portal Web Application** built using the MERN stack. The plat
 - Express.js
 - MongoDB
 - Mongoose
-- JWT
+- JSON Web Token (JWT)
 - Cookie Parser
 - Multer
 - Cloudinary
 - CORS
 
-### Tools
+### Development Tools
 
 - Git
 - GitHub
@@ -92,6 +96,7 @@ A full-stack **Job Portal Web Application** built using the MERN stack. The plat
 Job-Portal/
 │
 ├── backend/
+│   │
 │   ├── controllers/
 │   │   ├── application.controller.js
 │   │   ├── company.controller.js
@@ -121,12 +126,17 @@ Job-Portal/
 │   │
 │   ├── .env
 │   ├── index.js
-│   └── package.json
+│   ├── package.json
+│   └── package-lock.json
 │
 ├── frontend/
+│   │
 │   ├── public/
+│   │
 │   ├── src/
+│   │   │
 │   │   ├── assets/
+│   │   │
 │   │   ├── components/
 │   │   │   ├── admin/
 │   │   │   ├── auth/
@@ -134,22 +144,43 @@ Job-Portal/
 │   │   │   └── ui/
 │   │   │
 │   │   ├── hooks/
+│   │   │   ├── useGetAllAdminJobs.jsx
+│   │   │   ├── useGetAllCompanies.jsx
+│   │   │   ├── useGetAllJobs.jsx
+│   │   │   ├── useGetAppliedJobs.jsx
+│   │   │   └── useGetCompanyById.jsx
+│   │   │
 │   │   ├── lib/
+│   │   │   └── utils.js
+│   │   │
 │   │   ├── redux/
+│   │   │   ├── applicationSlice.js
+│   │   │   ├── authSlice.js
+│   │   │   ├── companySlice.js
+│   │   │   ├── jobSlice.js
+│   │   │   └── store.js
+│   │   │
 │   │   ├── utils/
+│   │   │   └── constant.js
+│   │   │
 │   │   ├── App.jsx
 │   │   ├── App.css
 │   │   ├── index.css
 │   │   └── main.jsx
 │   │
-│   ├── public/
+│   ├── components.json
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── jsconfig.json
 │   ├── package.json
+│   ├── package-lock.json
 │   └── vite.config.js
 │
 ├── .gitignore
 └── README.md
 ```
-⚙️ Installation & Setup
+
+⚙️ Installation
 1. Clone the Repository
 git clone https://github.com/Sushovanbarik/job-portal.git
 
@@ -157,13 +188,14 @@ git clone https://github.com/Sushovanbarik/job-portal.git
 cd job-portal
 
 🔧 Backend Setup
-Navigate to the backend:
+Go to the backend folder:
 cd backend
 
-Install dependencies:
+Install the dependencies:
 npm install
 
-Create a .env file inside the backend folder:
+Create a .env file inside the backend folder.
+Example:
 PORT=8000
 MONGO_URI=your_mongodb_connection_string
 SECRET_KEY=your_jwt_secret_key
@@ -171,14 +203,15 @@ CLOUD_NAME=your_cloudinary_cloud_name
 API_KEY=your_cloudinary_api_key
 API_SECRET=your_cloudinary_api_secret
 
-Start the backend:
+Start the backend server:
 npm run dev
 
-Backend will run on:
+The backend will run on:
 http://localhost:8000
 
 🎨 Frontend Setup
-Open another terminal and navigate to the frontend:
+Open a new terminal.
+Go to the frontend folder:
 cd frontend
 
 Install dependencies:
@@ -187,20 +220,23 @@ npm install
 Start the frontend:
 npm run dev
 
-Frontend will normally run on:
+The frontend will normally run on:
 http://localhost:5173
 
 🗄️ Database
 This project uses MongoDB as the database.
-The database stores:
+MongoDB stores information such as:
 - Users
 - Companies
 - Jobs
 - Applications
-MongoDB Atlas can be used for cloud-based database hosting.
+MongoDB Atlas can be used to host the database in the cloud.
+
 ☁️ Cloudinary
 Cloudinary is used for storing uploaded images/files.
-Cloudinary credentials should be stored securely in the .env file and should never be committed to GitHub.
+The backend connects to Cloudinary using environment variables.
+Do not expose your Cloudinary credentials publicly.
+
 🔄 Application Workflow
                     JOB PORTAL
                         │
@@ -208,13 +244,13 @@ Cloudinary credentials should be stored securely in the .env file and should nev
             │                       │
        JOB SEEKER                RECRUITER
             │                       │
-      Search Jobs              Create Company
+            │                  Create Company
             │                       │
-    View Job Details             Post Jobs
+       Search Jobs              Post Jobs
             │                       │
-      Apply for Job            Manage Jobs
+       View Job Details          Manage Jobs
             │                       │
-     Track Applications        View Applicants
+       Apply for Job            View Applicants
             │                       │
             └───────────┬───────────┘
                         │
@@ -226,6 +262,7 @@ Cloudinary credentials should be stored securely in the .env file and should nev
                         │
                         ▼
                      MONGODB
+
 
 🔐 Authentication Flow
 User
@@ -243,70 +280,77 @@ Validate Credentials
 Generate JWT
  │
  ▼
-Authentication Cookie
+Store Authentication Cookie
  │
  ▼
 Protected Routes
 
 📌 Main Modules
 User Module
-- User registration
+Responsible for:
+- Registration
 - Login
 - Logout
 - Profile management
 - Authentication
 Job Module
-- Create jobs
-- View jobs
-- Search jobs
-- Update jobs
-- Manage jobs
+Responsible for:
+- Creating jobs
+- Viewing jobs
+- Searching jobs
+- Updating jobs
+- Managing jobs
 Company Module
-- Create companies
-- Update company information
-- View companies
-- Manage company details
+Responsible for:
+- Creating companies
+- Updating company information
+- Viewing companies
+- Managing company details
 Application Module
-- Apply for jobs
-- View applications
-- Manage applications
-- Track applied jobs
-🧩 Frontend
+Responsible for:
+- Applying for jobs
+- Viewing applications
+- Managing applications
+- Tracking applied jobs
+🧩 Frontend Components
 The frontend contains reusable components for:
 - Authentication
 - Navigation
 - Job browsing
-- Job details
+- Job descriptions
+- Job cards
 - Company information
 - Application management
 - Admin dashboard
 - Forms
 - Tables
 - UI components
-Custom React hooks are used for fetching jobs, companies, applications, and admin data.
+The project also uses custom React hooks for fetching jobs, companies, applications, and admin data.
 🗃️ Redux State Management
-Redux Toolkit is used for managing application state.
-Main Redux slices:
+Redux Toolkit is used to manage application state.
+Main Redux slices include:
 applicationSlice.js
 authSlice.js
 companySlice.js
 jobSlice.js
 store.js
 
+These slices manage authentication, jobs, companies, and applications throughout the application.
 🔒 Environment Variables
-Sensitive information should be stored in environment variables.
-Examples:
-- MongoDB connection string
+Sensitive information such as:
+- MongoDB connection strings
 - JWT secret
 - Cloudinary credentials
 - API keys
-Never upload your .env file to GitHub.
+should be stored in .env files.
+The .env file should never be pushed to GitHub.
 
 🚀 Future Improvements
+Some possible future improvements include:
 - AI-based job recommendations
+- Real-time notifications
 - Resume parsing
 - Advanced job search
-- Real-time notifications
 - Interview scheduling
 - Recruiter analytics dashboard
 - Email notifications
@@ -317,8 +361,4 @@ Never upload your .env file to GitHub.
 Sushovan Barik
 GitHub:
 https://github.com/Sushovanbarik
-⭐ Support
-If you find this project useful, consider giving the repository a ⭐ on GitHub.
-Thank you for checking out the Job Portal project! 🚀
-
-
+                     
