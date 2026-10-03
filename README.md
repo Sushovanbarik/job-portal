@@ -88,7 +88,7 @@ A full-stack **Job Portal Web Application** built using the MERN stack. The plat
 
 ## 📂 Project Structure
 
-
+```text
 Job-Portal/
 │
 ├── backend/
