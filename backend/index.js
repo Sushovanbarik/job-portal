@@ -22,12 +22,9 @@ app.listen(port,()=>{
     connectDB();
     console.log(`Server running at port ${port}`);
 })
-// app.get("/",(req,res)=>{
-//     return res.status(200).json({
-//         message:"i am coming from backend",
-//         success:true
-//     })
-// })
+app.get("/", (req, res) => {
+    res.send("Job Portal Backend is running successfully!");
+});
 
 //api's
 import userRoute from "./routes/user.route.js";
